@@ -70,7 +70,7 @@ public:
         return true;
     }
     
-    mystring& operator+=(const mystring &other)
+    mystring& ADD(const mystring &other)
     {
         char *new_ch = new char[len + other.len];
         for (int i = 0; i < len; i++) {
@@ -83,6 +83,11 @@ public:
         ch = new_ch;
         len += other.len;
         return *this;
+    }
+    
+    mystring& operator+=(const mystring &other)
+    {
+        return ADD(other);
     }
     
     mystring operator+(const mystring &other) const
